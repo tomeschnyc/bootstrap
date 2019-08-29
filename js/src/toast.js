@@ -16,6 +16,7 @@ import {
 import Data from './dom/data'
 import EventHandler from './dom/event-handler'
 import Manipulator from './dom/manipulator'
+import { addClass, removeClass, hasClass } from './dom/class-list'
 
 /**
  * ------------------------------------------------------------------------
@@ -94,12 +95,12 @@ class Toast {
     this._clearTimeout()
 
     if (this._config.animation) {
-      Manipulator.addClass(this._element, CLASS_NAME_FADE)
+      addClass(this._element, CLASS_NAME_FADE)
     }
 
     const complete = () => {
-      Manipulator.removeClass(this._element, CLASS_NAME_SHOWING)
-      Manipulator.addClass(this._element, CLASS_NAME_SHOW)
+      removeClass(this._element, CLASS_NAME_SHOWING)
+      addClass(this._element, CLASS_NAME_SHOW)
 
       EventHandler.trigger(this._element, EVENT_SHOWN)
 
@@ -110,9 +111,9 @@ class Toast {
       }
     }
 
-    Manipulator.removeClass(this._element, CLASS_NAME_HIDE)
+    removeClass(this._element, CLASS_NAME_HIDE)
     reflow(this._element)
-    Manipulator.addClass(this._element, CLASS_NAME_SHOWING)
+    addClass(this._element, CLASS_NAME_SHOWING)
 
     if (this._config.animation) {
       const transitionDuration = getTransitionDurationFromElement(this._element)
@@ -125,7 +126,7 @@ class Toast {
   }
 
   hide() {
-    if (!Manipulator.containsClass(this._element, CLASS_NAME_SHOW)) {
+    if (!hasClass(this._element, CLASS_NAME_SHOW)) {
       return
     }
 
@@ -136,11 +137,11 @@ class Toast {
     }
 
     const complete = () => {
-      Manipulator.addClass(this._element, CLASS_NAME_HIDE)
+      addClass(this._element, CLASS_NAME_HIDE)
       EventHandler.trigger(this._element, EVENT_HIDDEN)
     }
 
-    Manipulator.removeClass(this._element, CLASS_NAME_SHOW)
+    removeClass(this._element, CLASS_NAME_SHOW)
     if (this._config.animation) {
       const transitionDuration = getTransitionDurationFromElement(this._element)
 
@@ -154,8 +155,8 @@ class Toast {
   dispose() {
     this._clearTimeout()
 
-    if (Manipulator.containsClass(this._element, CLASS_NAME_SHOW)) {
-      Manipulator.removeClass(this._element, CLASS_NAME_SHOW)
+    if (hasClass(this._element, CLASS_NAME_SHOW)) {
+      removeClass(this._element, CLASS_NAME_SHOW)
     }
 
     EventHandler.off(this._element, EVENT_CLICK_DISMISS)
