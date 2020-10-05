@@ -172,8 +172,7 @@
       "**/*.min.js",
       "**/dist/**",
       "**/vendor/**",
-      "site/static/sw.js",
-      "package.js"
+      "site/static/sw.js"
     ],
     "rules": {
       "capitalized-comments": "off",
