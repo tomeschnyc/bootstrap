@@ -5,8 +5,6 @@
  * --------------------------------------------------------------------------
  */
 
-import { find as findFn, findOne } from './polyfill'
-
 /**
  * ------------------------------------------------------------------------
  * Constants
@@ -21,11 +19,11 @@ const SelectorEngine = {
   },
 
   find(selector, element = document.documentElement) {
-    return [].concat(...findFn.call(element, selector))
+    return [].concat(...element.querySelectorAll(element, selector))
   },
 
   findOne(selector, element = document.documentElement) {
-    return findOne.call(element, selector)
+    return element.querySelector(element, selector)
   },
 
   children(element, selector) {
