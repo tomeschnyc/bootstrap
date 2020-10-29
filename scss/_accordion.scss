@@ -1,0 +1,167 @@
+//
+// Base styles
+//
+
+.accordion-button {
+  @include font-size($font-size-base);
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  padding: $accordion-button-padding-y $accordion-button-padding-x;
+  color: $accordion-button-color;
+  text-align: left;
+  background-color: $accordion-button-bg;
+  border: $accordion-border-width solid $accordion-border-color;
+  border-bottom: none;
+  @include border-radius(0);
+
+  &:not(.collapsed) {
+    color: $accordion-button-active-color;
+    background-color: $accordion-button-active-bg;
+
+    &::after {
+      background-image: escape-svg($accordion-button-active-icon);
+      transform: $accordion-button-active-icon-transform;
+    }
+  }
+
+  // Accordion icon
+  &::after {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1rem;
+    margin-left: auto;
+    content: "";
+    background-image: escape-svg($accordion-button-icon);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.5rem;
+    transform: $accordion-button-icon-transform;
+    @include transition($accordion-icon-transition);
+  }
+
+  &:focus {
+    position: relative;
+    outline: 0;
+    box-shadow: $btn-focus-box-shadow;
+  }
+}
+
+.accordion-header {
+  margin-bottom: 0;
+}
+
+.accordion-item {
+  @include border-radius($accordion-border-radius);
+
+  &:last-of-type {
+    .accordion-button {
+      border-bottom: $accordion-border-width solid $accordion-border-color;
+
+      // Only set a border-radius on the last item if the accordion is collapsed
+      &.collapsed {
+        @include border-bottom-radius($accordion-border-radius);
+      }
+    }
+
+    .accordion-body {
+      border: $accordion-border-width solid $accordion-border-color;
+      border-top: none;
+      @include border-bottom-radius($accordion-border-radius);
+    }
+  }
+
+  &:first-of-type {
+    .accordion-button {
+      @include border-top-radius($accordion-border-radius);
+    }
+  }
+}
+
+.accordion-body {
+  padding: $accordion-body-padding-y $accordion-body-padding-x;
+  border: $accordion-border-width solid $accordion-border-color;
+  border-bottom: none;
+}
+
+
+// Flush accordion items
+//
+// Remove borders and border-radius to keep accordion items edge-to-edge.
+
+.accordion-flush {
+  .accordion-button {
+    color: $accordion-flush-button-color;
+    background-color: $accordion-flush-button-bg;
+
+    &:not(.collapsed) {
+      color: $accordion-flush-button-active-color;
+      background-color: $accordion-flush-button-active-bg;
+    }
+
+    border-right: 0;
+    border-left: 0;
+    @include border-radius(0);
+  }
+
+  .accordion-body {
+    border-width: 0;
+  }
+
+  .accordion-item {
+    border-right-width: 0;
+    border-left-width: 0;
+    @include border-radius(0);
+
+    &:first-of-type {
+      .accordion-button {
+        border-top-width: 0;
+        @include border-top-radius(0);
+      }
+    }
+
+    &:last-of-type {
+      .accordion-button {
+        border-bottom-width: 0;
+        @include border-bottom-radius(0);
+      }
+
+      .accordion-body {
+        border-width: 0;
+      }
+    }
+  }
+}
+
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.accordion-striped {
+  .accordion-button {
+    color: $accordion-striped-button-color;
+    background-color: $accordion-striped-button-bg;
+
+    &:not(.collapsed) {
+      color: $accordion-striped-button-accent-active-color;
+      background-color: $accordion-striped-button-active-bg;
+    }
+  }
+
+  .accordion-item:nth-of-type(#{$accordion-striped-order}) {
+    .accordion-button {
+      color: $accordion-striped-button-accent-color;
+      background-color: $accordion-striped-button-accent-bg;
+
+      &:not(.collapsed) {
+        color: $accordion-striped-button-accent-active-color;
+        background-color: $accordion-striped-button-accent-active-bg;
+      }
+    }
+
+    .accordion-body {
+      background-color: $accordion-striped-body-accent-bg;
+    }
+  }
+}
