@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Accordion
-description: Provides an accordion to collapse content vertically.
+description: Build vertically collapsing accordions in combination with our Collapse JavaScript plugin.
 group: components
 aliases:
   - "/components/"
@@ -11,7 +11,7 @@ toc: true
 
 ## How it works
 
-The accordion uses [collapse]({{< docsref "/components/collapse" >}}) internally to make it collapsible. In order to render an accordion that's expanded you need to add the `open` class on the `.accordion`
+The accordion uses [collapse]({{< docsref "/components/collapse" >}}) internally to make it collapsible. To render an accordion that's expanded, add the `.open` class on the `.accordion`.
 
 {{< callout info >}}
 {{< partial "callout-info-prefersreducedmotion.md" >}}
@@ -56,11 +56,11 @@ Click the accordions below to expand/collapse the accordion content.
 </div>
 {{< /example >}}
 
-### Accordion flush example
+### Flush
 
-Add `.accordion-flush` to remove some borders and rounded corners to render accordions items edge-to-edge.
+Add `.accordion-flush` to remove the default `background-color`, some borders, and some rounded corners to render accordions items edge-to-edge.
 
-{{< example >}}
+{{< example class="bg-light" >}}
 <div class="accordion accordion-flush" id="accordionFlushExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
@@ -95,7 +95,7 @@ Add `.accordion-flush` to remove some borders and rounded corners to render acco
 </div>
 {{< /example >}}
 
-### Accordion striped example
+### Striped
 
 Use `.accordion-striped` to add zebra-striping to any accordion.
 
