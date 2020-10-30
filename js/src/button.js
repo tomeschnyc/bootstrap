@@ -103,8 +103,9 @@ const $ = getjQuery()
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .button to jQuery only if jQuery is present
+ * add .Button to jQuery only if jQuery is present
  */
+
 /* istanbul ignore if */
 if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]

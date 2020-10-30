@@ -241,8 +241,9 @@ const $ = getjQuery()
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .tab to jQuery only if jQuery is present
+ * add .Tab to jQuery only if jQuery is present
  */
+
 /* istanbul ignore if */
 if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]

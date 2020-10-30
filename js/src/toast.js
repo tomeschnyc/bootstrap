@@ -219,8 +219,9 @@ const $ = getjQuery()
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- *  add .toast to jQuery only if jQuery is present
+ * add .Toast to jQuery only if jQuery is present
  */
+
 /* istanbul ignore if */
 if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]

@@ -799,8 +799,9 @@ const $ = getjQuery()
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .tooltip to jQuery only if jQuery is present
+ * add .Tooltip to jQuery only if jQuery is present
  */
+
 /* istanbul ignore if */
 if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]

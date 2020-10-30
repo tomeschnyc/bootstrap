@@ -613,8 +613,9 @@ const $ = getjQuery()
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .modal to jQuery only if jQuery is present
+ * add .Modal to jQuery only if jQuery is present
  */
+
 /* istanbul ignore if */
 if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]

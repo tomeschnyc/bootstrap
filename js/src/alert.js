@@ -152,7 +152,7 @@ const $ = getjQuery()
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .alert to jQuery only if jQuery is present
+ * add .Alert to jQuery only if jQuery is present
  */
 
 /* istanbul ignore if */
