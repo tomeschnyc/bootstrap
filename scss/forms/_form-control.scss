@@ -1,5 +1,5 @@
 //
-// Textual form controls
+// General form controls (plus a few specific high-level interventions)
 //
 
 .form-control {
@@ -209,6 +209,10 @@ textarea {
   max-width: 3rem;
   height: auto; // Override fixed browser height
   padding: $input-padding-y;
+
+  &:not(:disabled):not([readonly]) {
+    cursor: pointer;
+  }
 
   &::-moz-color-swatch {
     height: if(unit($input-line-height) == "", $input-line-height * 1em, $input-line-height);
